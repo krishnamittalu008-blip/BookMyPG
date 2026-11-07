@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyPG - Find Your Perfect Stay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>BookMy<span>PG</span></h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#listings">Find PG</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <button onclick="showOwnerForm()">List Your Property</button>
+</header>
+
+<section class="hero" id="home">
+    <h1>Find Your Perfect <span>PG & Hostel</span></h1>
+    <p>Discover comfortable and affordable accommodation near you.</p>
+
+    <div class="search-box">
+        <input id="city" placeholder="Enter city">
+        <input id="area" placeholder="Enter locality">
+        <select id="budget">
+            <option value="">Any Budget</option>
+            <option value="7000">Below ₹7,000</option>
+            <option value="10000">Below ₹10,000</option>
+            <option value="15000">Below ₹15,000</option>
+        </select>
+        <button onclick="searchPG()">Search PG</button>
+    </div>
+</section>
+
+<section class="container" id="listings">
+    <h2>Explore Available PGs</h2>
+
+    <div class="filters">
+        <select id="gender" onchange="searchPG()">
+            <option value="">All PGs</option>
+            <option value="Boys">Boys PG</option>
+            <option value="Girls">Girls PG</option>
+        </select>
+
+        <select id="room" onchange="searchPG()">
+            <option value="">All Rooms</option>
+            <option value="Single">Single Sharing</option>
+            <option value="Double">Double Sharing</option>
+            <option value="Triple">Triple Sharing</option>
+        </select>
+
+        <select id="sort" onchange="searchPG()">
+            <option value="recommended">Recommended</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+        </select>
+    </div>
+
+    <div class="property-grid" id="propertyList"></div>
+</section>
+
+<section class="about" id="about">
+    <h2>Why Choose BookMyPG?</h2>
+    <div class="features">
+        <div>📍 Location-based Search</div>
+        <div>💰 Transparent Pricing</div>
+        <div>🏠 Multiple Room Options</div>
+        <div>✓ Verified Listings Concept</div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact BookMyPG</h2>
+    <p>Email: hello@bookmypg.example</p>
+    <button onclick="showContactForm()">Send Enquiry</button>
+</section>
+
+<footer>
+    <h3>BookMyPG</h3>
+    <p>Find Your Place. Feel At Home.</p>
+    <p>© 2026 BookMyPG Project</p>
+</footer>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button class="close" onclick="closeModal()">×</button>
+        <h2 id="modalTitle">Property Enquiry</h2>
+        <p id="modalDescription"></p>
+        <form id="enquiryForm">
+            <input name="name" placeholder="Your Name" required>
+            <input name="email" type="email" placeholder="Your Email" required>
+            <input name="phone" type="tel" placeholder="Phone Number" required>
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="success" hidden>Enquiry preview completed. Connect a backend to receive submissions.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
